@@ -1,0 +1,24 @@
+RewriteEngine On
+RewriteBase /
+ErrorDocument 404 /404_redirect.php
+#RewriteRule => / contact / lien-he
+RewriteRule ^lien-he$ contact.php
+RewriteRule ^tim-kiem/(.*)/trang-([0-9]+) search.php?id=$1&page=$2
+RewriteRule ^tim-kiem/(.*) search.php$1
+
+#cat.php?id=2&page=3 => danh-muc/truyen-tinh-ban-2/trang-2
+RewriteRule danh-muc/(.*)-([0-9]+)/trang-([0-9]+) cat.php?id=$2&page=$3
+#cat.php?id=2 => danh-muc/truyen-tinh-ban-1 // slug -- $2 la ([0-9])
+RewriteRule danh-muc/(.*)-([0-9]+) cat.php?id=$2
+#detail.php?id=32 => chi-tiet/toi-nhu-anh-duong-ruc-ro-32.html
+RewriteRule chi-tiet/(.*)-([0-9]+).html detail.php?id=$2
+#?page=2 => trang-2
+RewriteRule trangchu-([0-9]+) ?page=$1
+RewriteRule ^login$ /auth/login.php
+RewriteRule ^logout$ /auth/logout.php
+
+
+
+
+
+
